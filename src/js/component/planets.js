@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Card, Button, ButtonToolbar } from "react-bootstrap";
 import { Context } from "../store/appContext";
@@ -31,9 +31,11 @@ export const Planets = () => {
 								<Button variant="primary">Learn more</Button>
 							</Link>
 
-							<Button variant="outline-warning">
-								<i className="far fa-heart" />
-							</Button>
+							<Link onClick={() => actions.addFavorite(arrayplanets.name, "planets")}>
+								<Button variant="outline-warning">
+									<i className="far fa-heart" />
+								</Button>
+							</Link>
 						</ButtonToolbar>
 					</Card.Body>
 				</Card>

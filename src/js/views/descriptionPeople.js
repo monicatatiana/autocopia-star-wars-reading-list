@@ -24,8 +24,8 @@ export const DescriptionPeople = () => {
 					<Col xs={6} md={6}>
 						<div>
 							<Card>
-								<Card.Header as="h5">Character</Card.Header>
 								<Card.Body>
+									<Card.Header as="h5">Character</Card.Header>
 									<Card.Title>{elementsById.name}</Card.Title>
 									<Card.Text>
 										Star Wars (conocida también en español como La guerra de las galaxias)5​6​7​ es

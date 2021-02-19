@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Card, Button, ButtonToolbar } from "react-bootstrap";
 import { Context } from "../store/appContext";
 import { DescriptionPeople } from "../views/descriptionPeople";
+//import { Link } from "react-router-dom";
 
 export const People = () => {
 	const { store, actions } = useContext(Context);
@@ -31,9 +32,11 @@ export const People = () => {
 								<Button variant="primary">Learn more</Button>
 							</Link>
 
-							<Button variant="outline-warning">
-								<i className="far fa-heart" />
-							</Button>
+							<Link onClick={() => actions.addFavorite(arraypeople.name, "people")}>
+								<Button variant="outline-warning">
+									<i className="far fa-heart" />
+								</Button>
+							</Link>
 						</ButtonToolbar>
 					</Card.Body>
 				</Card>
@@ -41,3 +44,6 @@ export const People = () => {
 		</div>
 	);
 };
+//<Button variant="outline-warning">
+//<i className="far fa-heart" />
+//</Button>

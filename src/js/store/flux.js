@@ -3,9 +3,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			people: [],
 
-			planets: []
+			planets: [],
 
-			//favorites: []
+			favorites: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction===================================
@@ -21,35 +21,61 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const response = await fetch(url);
 				const info = await response.json();
 				setStore({ planets: info.results });
-			}
+			},
+			addFavorite: (name, type) => {
+				const store = getStore();
+				let count = 0;
+				store.favorites.map(each => {
+					if (each.name == name) {
+						count = 1;
+					}
+				});
+				if (count == 0) {
+					setStore({
+						favorites: [
+							...store.favorites,
+							{
+								name: name,
+								type: type
+							}
+						]
+					});
+				}
+			},
 
-			//addFavorite: (name, type) => {
-			//const store = getStore();
-			//let count = 0;
-			//store.favorites.map(each => {
-			//if (each.name == name) {
-			//count = 1;
-			//}
-			//});
-			//if (count == 0) {
-			//setStore({
-			//favorites: [
-			//...store.favorites,
-			//{
-			//name: name,
-			//type: type
-			//}
-			//]
-			//});
-			//}
-			//deleteFavorite: id => {
-			//const store = getStore();
-			//const newFavorites = store.favorites.filter((item, i) => i !== id);
-			//setStore({ favorites: newFavorites });
-			//};
-			//}
+			deleteFavorite: id => {
+				const store = getStore();
+
+				const newFavorites = store.favorites.filter((item, i) => i !== id);
+				setStore({ favorites: newFavorites });
+			}
 		}
 	};
 };
 
 export default getState;
+//addFavorite: (name, type) => {
+//const store = getStore();
+//let count = 0;
+//store.favorites.map(each => {
+//if (each.name == name) {
+//count = 1;
+//}
+//});
+//if (count == 0) {
+//setStore({
+//favorites: [
+//...store.favorites,
+//{
+//name: name,
+//type: type
+//}
+//]
+//});
+//}
+//deleteFavorite: id => {
+//const store = getStore();
+//const newFavorites = store.favorites.filter((item, i) => i !== id);
+//setStore({ favorites: newFavorites });
+//};
+//}
