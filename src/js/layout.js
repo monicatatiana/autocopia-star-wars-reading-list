@@ -13,6 +13,7 @@ import { People } from "./component/people";
 import { Planets } from "./component/planets";
 import { DescriptionPeople } from "./views/descriptionPeople";
 import { DescriptionPlanets } from "./views/descriptionPlanets";
+import { Register } from "./component/register";
 
 //create your first component
 const Layout = () => {
@@ -47,8 +48,8 @@ const Layout = () => {
 						<Route exact path="/descriptionPlanets/:theid">
 							<DescriptionPlanets />
 						</Route>
-                        <Route exact path="/register">
-							<DescriptionPlanets />
+						<Route exact path="/register">
+							<Register />
 						</Route>
 					</Switch>
 					<Footer />
