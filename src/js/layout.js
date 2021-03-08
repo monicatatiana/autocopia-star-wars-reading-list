@@ -47,6 +47,9 @@ const Layout = () => {
 						<Route exact path="/descriptionPlanets/:theid">
 							<DescriptionPlanets />
 						</Route>
+                        <Route exact path="/register">
+							<DescriptionPlanets />
+						</Route>
 					</Switch>
 					<Footer />
 				</ScrollToTop>
